@@ -244,4 +244,97 @@ nano archive_ext
 #!/bin/bash
 
 if [ $# -ne 1 ]; then
-    echo "Использование: ./archive
+    echo "Использование: ./archive_ext расширение"
+    exit 1
+fi
+
+find . -maxdepth 1 -type f -name "*.$1" -print | tar -cf archive.tar -T -
+
+echo "Архив archive.tar создан"
+```
+
+После сохранения:
+
+```bash
+chmod +x archive_ext
+./archive_ext txt
+```
+
+Посмотреть содержимое архива:
+
+```bash
+tar -tf archive.tar
+```
+
+---
+
+## Задание 9
+
+В терминале:
+
+```bash
+nano spaces_to_tabs
+```
+
+В `nano spaces_to_tabs`:
+
+```bash
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo "Использование: ./spaces_to_tabs входной_файл выходной_файл"
+    exit 1
+fi
+
+sed $'s/    /\t/g' "$1" > "$2"
+
+echo "Замена выполнена"
+```
+
+После сохранения:
+
+```bash
+chmod +x spaces_to_tabs
+```
+
+Запуск:
+
+```bash
+./spaces_to_tabs input.txt output.txt
+```
+
+Для проверки табуляции:
+
+```bash
+cat -T output.txt
+```
+
+---
+
+## Задание 10
+
+В терминале:
+
+```bash
+nano emptyfiles
+```
+
+В `nano emptyfiles`:
+
+```bash
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Использование: ./emptyfiles директория"
+    exit 1
+fi
+
+find "$1" -maxdepth 1 -type f -empty -printf '%f\n'
+```
+
+После сохранения:
+
+```bash
+chmod +x emptyfiles
+./emptyfiles .
+```
