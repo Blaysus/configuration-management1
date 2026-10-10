@@ -1,0 +1,1 @@
+cd "/Users/blaysus/Documents/работы/Конфигурационное управление/prac1_2" && g++ -std=c++17 main.cpp -lz -o main && ./main
