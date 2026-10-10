@@ -1,0 +1,8 @@
+ls
+cd docs
+head -n 1 info.txt
+cd /
+cal 2 2024
+uname -a
+cd /missing
+exit
